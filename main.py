@@ -4,11 +4,9 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.responses import HTMLResponse
 
 BASEDIR = Path(__file__).resolve().parent
-print("BASEDIR", BASEDIR)
 HEAD_FILE = BASEDIR / "templates" / "partials" / "head.html"
 HTML_FILE = BASEDIR / "templates" / "index.html"
 FOOTER_FILE = BASEDIR / "templates" / "partials" / "footer.html"
-print("HTML_FILE", HTML_FILE)
 
 app = FastAPI()
 
