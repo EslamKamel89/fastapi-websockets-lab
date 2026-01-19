@@ -19,3 +19,11 @@ async def get():
     {FOOTER_FILE.read_text(encoding='utf-8')}
     """
     return HTMLResponse(content)
+
+
+@app.websocket("/ws/{client_id}")
+async def websocket_endpoint(websocket: WebSocket, client_id: str):
+    await websocket.accept()
+    while True:
+        data = await websocket.receive_text()
+        await websocket.send_text(f"Message text was {data}")
